@@ -1,0 +1,33 @@
+@startuml
+actor Adotante
+participant "Sistema PetCar" as Sistema
+database "Banco de Dados" as BD
+actor "ONG/Abrigo/Protetor" as ONG
+
+Adotante -> Sistema: selecionarAnimal(idAnimal)
+
+Sistema -> BD: buscarAnimalPorId(idAnimal)
+BD --> Sistema: dadosAnimal
+
+Sistema --> Adotante: exibirFichaAnimal()
+
+Adotante -> Sistema: solicitarAdocao(idAnimal, dadosSolicitacao)
+
+Sistema -> BD: consultarStatusAnimal(idAnimal)
+BD --> Sistema: statusAnimal
+
+Sistema -> Sistema: validarDisponibilidadeAnimal()
+
+Sistema -> BD: registrarSolicitacao(idAnimal, dadosSolicitacao)
+BD --> Sistema: solicitacaoRegistrada
+
+Sistema -> BD: atualizarStatusAnimal(idAnimal, "Em processo de adoção")
+BD --> Sistema: statusAtualizado
+
+Sistema -> BD: registrarNotificacaoONG(idAnimal, idSolicitacao)
+BD --> Sistema: notificacaoRegistrada
+
+Sistema --> ONG: notificarNovaSolicitacao(idAnimal, idSolicitacao)
+
+Sistema --> Adotante: confirmarSolicitacao()
+@enduml

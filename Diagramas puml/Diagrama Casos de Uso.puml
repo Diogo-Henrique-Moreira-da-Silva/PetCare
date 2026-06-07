@@ -1,0 +1,52 @@
+@startuml
+left to right direction
+
+actor "Adotante" as Adotante
+actor "ONG/Abrigo/Protetor" as ONG
+
+rectangle "Sistema PetCar" {
+
+  usecase "UC01\nCadastrar animal" as UC01
+  usecase "UC02\nEditar dados do animal" as UC02
+
+  usecase "UC03\nListar animais disponíveis" as UC03
+  usecase "UC04\nFiltrar animais" as UC04
+  usecase "UC05\nVisualizar ficha do animal" as UC05
+
+  usecase "UC06\nSolicitar adoção" as UC06
+  usecase "UC07\nAnalisar solicitação" as UC07
+  usecase "UC08\nAlterar status da adoção" as UC08
+  usecase "UC09\nEnviar notificação\nao adotante" as UC09
+
+  usecase "UC10\nConsultar histórico\nde solicitações" as UC10
+
+  usecase "UC11\nConversar pelo chat" as UC11
+  usecase "UC12\nEnviar mensagem" as UC12
+  usecase "UC13\nVisualizar histórico\ndo chat" as UC13
+}
+
+Adotante --> UC03
+Adotante --> UC04
+Adotante --> UC05
+Adotante --> UC06
+Adotante --> UC10
+Adotante --> UC11
+
+ONG --> UC01
+ONG --> UC07
+ONG --> UC10
+ONG --> UC11
+
+UC01 ..> UC02 : <<extend>>
+
+UC04 ..> UC03 : <<extend>>
+UC05 ..> UC03 : <<extend>>
+UC06 ..> UC05 : <<extend>>
+
+UC07 ..> UC08 : <<include>>
+UC08 ..> UC09 : <<include>>
+
+UC11 ..> UC12 : <<include>>
+UC11 ..> UC13 : <<include>>
+
+@enduml

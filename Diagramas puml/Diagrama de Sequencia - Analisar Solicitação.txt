@@ -1,0 +1,42 @@
+@startuml
+actor "ONG/Abrigo/Protetor" as ONG
+participant "Sistema PetCar" as Sistema
+database "Banco de Dados" as BD
+actor Adotante
+
+ONG -> Sistema: consultarSolicitacoes()
+Sistema -> BD: buscarSolicitacoesRecebidas(idONG)
+BD --> Sistema: listaSolicitacoes
+Sistema --> ONG: listarSolicitacoes()
+
+ONG -> Sistema: analisarSolicitacao(idSolicitacao)
+Sistema -> BD: buscarSolicitacaoPorId(idSolicitacao)
+BD --> Sistema: dadosSolicitacao
+Sistema --> ONG: exibirDadosSolicitacao()
+
+ONG -> Sistema: definirResultado(idSolicitacao, status)
+
+Sistema -> BD: atualizarStatusSolicitacao(idSolicitacao, status)
+BD --> Sistema: statusSolicitacaoAtualizado
+
+alt status = "Aprovada"
+    Sistema -> BD: atualizarStatusAnimal(idAnimal, "Adotado")
+    BD --> Sistema: statusAnimalAtualizado
+
+    Sistema -> BD: registrarNotificacao(idAdotante, "Solicitação aprovada")
+    BD --> Sistema: notificacaoRegistrada
+
+    Sistema --> Adotante: notificarResultado("Sua solicitação foi aprovada")
+
+else status = "Recusada"
+    Sistema -> BD: atualizarStatusAnimal(idAnimal, "Disponível")
+    BD --> Sistema: statusAnimalAtualizado
+
+    Sistema -> BD: registrarNotificacao(idAdotante, "Solicitação recusada")
+    BD --> Sistema: notificacaoRegistrada
+
+    Sistema --> Adotante: notificarResultado("Sua solicitação foi recusada")
+end
+
+Sistema --> ONG: confirmarAnalise()
+@enduml

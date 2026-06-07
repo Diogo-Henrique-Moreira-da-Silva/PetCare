@@ -1,0 +1,12 @@
+@startuml
+actor Adotante
+participant "Sistema PetCar" as Sistema
+
+Adotante -> Sistema: abrirChat(idSolicitacao)
+Sistema --> Adotante: exibirHistoricoChat()
+
+Adotante -> Sistema: enviarMensagem(idSolicitacao, mensagem)
+Sistema -> Sistema: validarMensagem()
+Sistema -> Sistema: registrarMensagem()
+Sistema --> Adotante: confirmarEnvio()
+@enduml
