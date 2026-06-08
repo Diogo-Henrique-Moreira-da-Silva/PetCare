@@ -23,6 +23,9 @@ rectangle "Sistema PetCar" {
   usecase "UC11\nConversar pelo chat" as UC11
   usecase "UC12\nEnviar mensagem" as UC12
   usecase "UC13\nVisualizar histórico\ndo chat" as UC13
+
+  usecase "UC14\nVisualizar distância\naproximada" as UC14
+  usecase "UC15\nVisualizar localização\nno mapa" as UC15
 }
 
 Adotante --> UC03
@@ -31,6 +34,8 @@ Adotante --> UC05
 Adotante --> UC06
 Adotante --> UC10
 Adotante --> UC11
+Adotante --> UC14
+Adotante --> UC15
 
 ONG --> UC01
 ONG --> UC07
@@ -42,6 +47,9 @@ UC01 ..> UC02 : <<extend>>
 UC04 ..> UC03 : <<extend>>
 UC05 ..> UC03 : <<extend>>
 UC06 ..> UC05 : <<extend>>
+
+UC14 ..> UC05 : <<extend>>
+UC15 ..> UC05 : <<extend>>
 
 UC07 ..> UC08 : <<include>>
 UC08 ..> UC09 : <<include>>

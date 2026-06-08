@@ -1,0 +1,20 @@
+@startuml
+
+node "Dispositivo do Usuário" {
+  artifact "Navegador Web" as Browser
+}
+
+node "Servidor de Aplicação" {
+  artifact "Frontend PetCar\nHTML/CSS/JavaScript" as Frontend
+  artifact "Backend PetCar\nControllers, Services e Repositories" as Backend
+}
+
+database "Servidor de Banco de Dados" {
+  artifact "Banco de Dados PetCar" as BD
+}
+
+Browser --> Frontend : acessa páginas do sistema
+Frontend --> Backend : requisições HTTP/REST
+Backend --> BD : consultas e atualizações
+
+@enduml

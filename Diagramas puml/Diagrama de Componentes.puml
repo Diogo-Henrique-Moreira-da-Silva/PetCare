@@ -1,0 +1,41 @@
+@startuml
+skinparam componentStyle rectangle
+
+actor "Adotante" as Adotante
+actor "ONG/Abrigo/Protetor" as ONG
+
+package "PetCar" {
+
+  component "Interface Web" as Web
+
+  component "Módulo de Animais" as Animais
+  component "Módulo de Adoção" as Adocao
+  component "Módulo de Chat" as Chat
+  component "Módulo de Notificações" as Notificacao
+
+  component "Controllers" as Controllers
+  component "Services" as Services
+  component "Repositories/DAOs" as Repositories
+
+  database "Banco de Dados" as BD
+}
+
+Adotante --> Web
+ONG --> Web
+
+Web --> Controllers
+
+Controllers --> Animais
+Controllers --> Adocao
+Controllers --> Chat
+Controllers --> Notificacao
+
+Animais --> Services
+Adocao --> Services
+Chat --> Services
+Notificacao --> Services
+
+Services --> Repositories
+Repositories --> BD
+
+@enduml
