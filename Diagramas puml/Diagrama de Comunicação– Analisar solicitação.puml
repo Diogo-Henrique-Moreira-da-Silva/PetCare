@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+
+object "ong: ONG/Abrigo/Protetor" as ONG
+object "sistema: Sistema PetCar" as Sistema
+object "banco: Banco de Dados" as BD
+object "adotante: Adotante" as Adotante
+
+ONG -- Sistema
+Sistema -- BD
+Sistema -- Adotante
+
+note left of ONG
+1. consultarSolicitacoes()
+2. analisarSolicitacao(idSolicitacao)
+3. definirResultado(idSolicitacao, status)
+end note
+
+note right of Sistema
+1.3 listarSolicitacoes()
+2.3 exibirDadosSolicitacao()
+3.7 notificarResultadoSolicitacao()
+3.8 confirmarAnalise()
+end note
+
+note top of BD
+1.1 buscarSolicitacoesRecebidas(idONG)
+1.2 retornarListaSolicitacoes()
+2.1 buscarSolicitacaoPorId(idSolicitacao)
+2.2 retornarDadosSolicitacao()
+3.1 atualizarStatusSolicitacao(status)
+3.2 confirmarStatusSolicitacaoAtualizado()
+3.3 atualizarStatusAnimal(statusAnimal)
+3.4 confirmarStatusAnimalAtualizado()
+3.5 registrarNotificacaoAdotante(resultado)
+3.6 confirmarNotificacaoRegistrada()
+end note
+
+note right of Adotante
+3.7 receberNotificacaoResultado()
+end note
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+actor "ONG/Abrigo/Protetor" as ONG
+participant "Sistema PetCar" as Sistema
+database "Banco de Dados" as BD
+
+ONG -> Sistema: acessarFormularioCadastroAnimal()
+Sistema --> ONG: exibirFormularioCadastro()
+
+ONG -> Sistema: preencherDadosAnimal(dadosAnimal)
+ONG -> Sistema: enviarCadastroAnimal()
+
+Sistema -> Sistema: validarDadosAnimal(dadosAnimal)
+
+alt dados válidos
+    Sistema -> BD: salvarAnimal(dadosAnimal)
+    BD --> Sistema: animalCadastrado
+
+    Sistema --> ONG: confirmarCadastroAnimal()
+else dados inválidos
+    Sistema --> ONG: exibirMensagemErro()
+end
+
+@enduml

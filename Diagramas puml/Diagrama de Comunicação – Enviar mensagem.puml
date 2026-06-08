@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+
+object "adotante: Adotante" as Adotante
+object "sistema: Sistema PetCar" as Sistema
+object "banco: Banco de Dados" as BD
+object "ong: ONG/Abrigo/Protetor" as ONG
+
+Adotante -- Sistema
+Sistema -- BD
+Sistema -- ONG
+
+note left of Adotante
+1. abrirChat(idSolicitacao)
+2. enviarMensagem(idSolicitacao, mensagem)
+end note
+
+note right of Sistema
+1.3 exibirHistoricoChat()
+2.1 validarMensagem()
+2.6 notificarNovaMensagem(idSolicitacao)
+2.7 confirmarEnvio()
+end note
+
+note top of BD
+1.1 buscarHistoricoChat(idSolicitacao)
+1.2 retornarHistoricoChat()
+2.2 registrarMensagem(idSolicitacao, mensagem)
+2.3 confirmarMensagemRegistrada()
+2.4 atualizarHistoricoChat(idSolicitacao)
+2.5 confirmarHistoricoAtualizado()
+end note
+
+note right of ONG
+2.6 receberNotificacaoNovaMensagem()
+end note
+
+@enduml

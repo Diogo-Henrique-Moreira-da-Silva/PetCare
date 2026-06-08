@@ -1,0 +1,22 @@
+@startuml
+actor Adotante
+participant "Sistema PetCar" as Sistema
+database "Banco de Dados" as BD
+participant "API de Mapas/Localização" as ApiMapas
+
+Adotante -> Sistema: visualizarFichaAnimal(idAnimal)
+
+Sistema -> BD: buscarAnimalPorId(idAnimal)
+BD --> Sistema: dadosAnimal
+
+Sistema -> BD: buscarLocalizacaoAdotante(idAdotante)
+BD --> Sistema: localizacaoAdotante
+
+Sistema -> ApiMapas: calcularDistancia(localizacaoAdotante, localizacaoAnimal)
+ApiMapas --> Sistema: distanciaAproximada
+
+Sistema -> ApiMapas: gerarMapa(localizacaoAnimal)
+ApiMapas --> Sistema: mapaLocalizacao
+
+Sistema --> Adotante: exibirFichaComDistanciaEMapa()
+@enduml

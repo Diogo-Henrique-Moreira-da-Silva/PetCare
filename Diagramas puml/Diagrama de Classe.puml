@@ -1,0 +1,103 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Usuario {
+  - id: Long
+  - nome: String
+  - email: String
+  - senha: String
+  - telefone: String
+  - tipoUsuario: String
+}
+
+class Adotante {
+  - cpf: String
+  - cidade: String
+  - estado: String
+  - latitude: Double
+  - longitude: Double
+}
+
+class ONG {
+  - cnpj: String
+  - nomeResponsavel: String
+  - descricao: String
+  - cidade: String
+  - estado: String
+  - latitude: Double
+  - longitude: Double
+}
+
+class Animal {
+  - id: Long
+  - nome: String
+  - especie: String
+  - raca: String
+  - idade: Integer
+  - porte: String
+  - sexo: String
+  - descricao: String
+  - foto: String
+  - status: String
+  - cidade: String
+  - estado: String
+  - latitude: Double
+  - longitude: Double
+}
+
+class SolicitacaoAdocao {
+  - id: Long
+  - dataSolicitacao: Date
+  - status: String
+  - observacao: String
+}
+
+class Notificacao {
+  - id: Long
+  - mensagem: String
+  - dataEnvio: Date
+  - lida: Boolean
+}
+
+class Chat {
+  - id: Long
+  - dataCriacao: Date
+  - ativo: Boolean
+}
+
+class Mensagem {
+  - id: Long
+  - conteudo: String
+  - dataEnvio: Date
+  - visualizada: Boolean
+}
+
+class LocalizacaoService {
+  + calcularDistancia(origemLat: Double, origemLong: Double, destinoLat: Double, destinoLong: Double): Double
+  + obterLocalizacaoNoMapa(latitude: Double, longitude: Double): String
+}
+
+class ApiMapas {
+  + consultarDistancia(): Double
+  + gerarMapa(): String
+}
+
+Usuario <|-- Adotante
+Usuario <|-- ONG
+
+ONG "1" --> "0..*" Animal : cadastra
+Adotante "1" --> "0..*" SolicitacaoAdocao : realiza
+ONG "1" --> "0..*" SolicitacaoAdocao : analisa
+
+SolicitacaoAdocao "1" --> "0..1" Chat : possui
+Chat "1" --> "0..*" Mensagem : contém
+
+
+Usuario "1" --> "0..*" Notificacao : recebe
+SolicitacaoAdocao "1" --> "0..*" Notificacao : gera
+
+Animal ..> LocalizacaoService : usa localização
+Adotante ..> LocalizacaoService : informa localização
+LocalizacaoService ..> ApiMapas : consulta
+
+@enduml
