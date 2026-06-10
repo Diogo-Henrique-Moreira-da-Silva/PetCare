@@ -1,0 +1,14 @@
+@startuml
+[*] --> Disponivel : animal cadastrado
+
+Disponivel --> EmProcessoDeAdocao : solicitação de adoção enviada
+EmProcessoDeAdocao --> Adotado : solicitação aprovada
+EmProcessoDeAdocao --> Disponivel : solicitação recusada
+EmProcessoDeAdocao --> Disponivel : solicitação cancelada
+
+Disponivel --> Indisponivel : animal removido ou suspenso
+Indisponivel --> Disponivel : animal reativado
+
+Adotado --> [*]
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+[*] --> Enviada : adotante solicita adoção
+
+Enviada --> EmAnalise : ONG visualiza solicitação
+
+EmAnalise --> Aprovada : ONG aprova solicitação
+EmAnalise --> Recusada : ONG recusa solicitação
+EmAnalise --> Cancelada : adotante cancela solicitação
+
+Aprovada --> [*]
+Recusada --> [*]
+Cancelada --> [*]
+
+@enduml

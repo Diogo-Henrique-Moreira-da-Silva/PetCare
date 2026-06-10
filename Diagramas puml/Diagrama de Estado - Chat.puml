@@ -1,0 +1,17 @@
+@startuml
+[*] --> Criado : chat iniciado
+
+Criado --> Ativo : primeira mensagem enviada
+Ativo --> AguardandoRespostaONG : adotante envia mensagem
+AguardandoRespostaONG --> Ativo : ONG responde
+
+Ativo --> AguardandoRespostaAdotante : ONG envia mensagem
+AguardandoRespostaAdotante --> Ativo : adotante responde
+
+Ativo --> Encerrado : processo de adoção finalizado
+AguardandoRespostaONG --> Encerrado : processo de adoção finalizado
+AguardandoRespostaAdotante --> Encerrado : processo de adoção finalizado
+
+Encerrado --> [*]
+
+@enduml

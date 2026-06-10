@@ -1,41 +1,82 @@
 @startuml
-skinparam componentStyle rectangle
+
+skinparam componentStyle uml2
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam linetype ortho
 
 actor "Adotante" as Adotante
 actor "ONG/Abrigo/Protetor" as ONG
 
-package "PetCar" {
-
-  component "Interface Web" as Web
-
-  component "Módulo de Animais" as Animais
-  component "Módulo de Adoção" as Adocao
-  component "Módulo de Chat" as Chat
-  component "Módulo de Notificações" as Notificacao
-
-  component "Controllers" as Controllers
-  component "Services" as Services
-  component "Repositories/DAOs" as Repositories
-
-  database "Banco de Dados" as BD
+package "Frontend - Web" {
+  component "Tela Inicial" as TelaInicial <<component>>
+  component "Lista de Animais" as ListaAnimais <<component>>
+  component "Ficha do Animal" as FichaAnimal <<component>>
+  component "Solicitação de Adoção" as TelaSolicitacao <<component>>
+  component "Histórico de Solicitações" as Historico <<component>>
+  component "Chat" as TelaChat <<component>>
+  component "Cadastro de Animal" as TelaCadastroAnimal <<component>>
+  component "Painel da ONG" as PainelONG <<component>>
 }
 
-Adotante --> Web
-ONG --> Web
+package "Camada REST API" {
+  component "API Animais\n/animais" as ApiAnimais <<component>>
+  component "API Adoção\n/solicitacoes" as ApiAdocao <<component>>
+  component "API Chat\n/chat" as ApiChat <<component>>
+}
 
-Web --> Controllers
+package "Backend - PetCar" {
+  component "Animal\n\nCadastrarAnimal()\nEditarAnimal()\nListarAnimais()\nFiltrarAnimais()" as Animal <<component>>
 
-Controllers --> Animais
-Controllers --> Adocao
-Controllers --> Chat
-Controllers --> Notificacao
+  component "Adoção\n\nSolicitarAdocao()\nAnalisarSolicitacao()\nAlterarStatusAdocao()\nConsultarHistorico()" as Adocao <<component>>
 
-Animais --> Services
-Adocao --> Services
-Chat --> Services
-Notificacao --> Services
+  component "Chat\n\nAbrirChat()\nEnviarMensagem()\nVisualizarHistoricoChat()" as Chat <<component>>
 
-Services --> Repositories
-Repositories --> BD
+  component "Notificação\n\nGerarNotificacao()\nNotificarAdotante()\nNotificarONG()" as Notificacao <<component>>
+
+  component "Localização\n\nCalcularDistancia()\nExibirMapa()\nConsultarProximidade()" as Localizacao <<component>>
+}
+
+database "Database - PostgreSQL" as DB
+cloud "API Externa\nMapas/Localização" as ApiMapas
+
+Adotante --> TelaInicial
+ONG --> PainelONG
+
+TelaInicial ..> ListaAnimais
+ListaAnimais ..> FichaAnimal
+FichaAnimal ..> TelaSolicitacao
+TelaSolicitacao ..> Historico
+FichaAnimal ..> TelaChat
+
+PainelONG ..> TelaCadastroAnimal
+PainelONG ..> Historico
+PainelONG ..> TelaChat
+
+ListaAnimais --(0-- ApiAnimais
+FichaAnimal --(0-- ApiAnimais
+TelaCadastroAnimal --(0-- ApiAnimais
+
+TelaSolicitacao --(0-- ApiAdocao
+Historico --(0-- ApiAdocao
+
+TelaChat --(0-- ApiChat
+
+ApiAnimais --(0-- Animal
+ApiAdocao --(0-- Adocao
+ApiChat --(0-- Chat
+
+Animal --(0-- DB : ConexãoBD
+Adocao --(0-- DB : ConexãoBD
+Chat --(0-- DB : ConexãoBD
+Notificacao --(0-- DB : ConexãoBD
+Localizacao --(0-- DB : ConexãoBD
+
+Adocao ..> Animal : <<use>>
+Adocao ..> Notificacao : <<use>>
+Chat ..> Notificacao : <<use>>
+Animal ..> Localizacao : <<use>>
+
+Localizacao --(0-- ApiMapas : API mapas
 
 @enduml
