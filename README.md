@@ -117,62 +117,65 @@ A arquitetura é composta por:
 * **Módulo de Notificações:** geração de alertas para usuários;
 * **Módulo de Localização:** cálculo de distância e integração com API externa.
 
+### Diagrama de Arquitetura:
+<img src="DiagramaImagens\Diagrama-de-Arquitetura.png">
 ---
 
 ## 📊 Diagramas do Projeto
 
-Os diagramas do sistema estão organizados na pasta **`Diagrama Imagens`**.
+Os diagramas do sistema estão organizados na pasta **`DiagramaImagens`**.
 
 ### Diagramas principais
 
-| Diagrama                 | Imagem                                                                     |
-| ------------------------ | -------------------------------------------------------------------------- |
-| Diagrama de Casos de Uso | <img src="Diagrama%20Imagens/Diagrama%20Casos%20de%20Uso.png" width="350"> |
-| Diagrama de Classes      | <img src="Diagrama%20Imagens/Diagrama%20Classes.png" width="350">          |
-| Diagrama de Arquitetura  | <img src="Diagrama%20Imagens/Diagrama%20de%20Arquitetura.png" width="350"> |
-| Diagrama de Componentes  | <img src="Diagrama%20Imagens/Diagrama%20de%20Componentes.png" width="350"> |
-| Diagrama de Implantação  | <img src="Diagrama%20Imagens/Diagrama%20de%20Implantação.png" width="350"> |
-| Modelo de Banco          | <img src="Diagrama%20Imagens/Modelos%20de%20Banco.png" width="350">        |
+| Diagrama | Imagem |
+|---|---|
+| Diagrama de Casos de Uso | <img src="./DiagramaImagens/Diagrama-Casos-de-Uso.png" width="350"> |
+| Diagrama de Classes | <img src="./DiagramaImagens/Diagrama-Classes.png" width="350"> |
+| Diagrama de Arquitetura | <img src="./DiagramaImagens/Diagrama-de-Arquitetura.png" width="350"> |
+| Diagrama de Componentes | <img src="./DiagramaImagens/Diagrama-de-Componentes.png" width="350"> |
+| Diagrama de Implantação | <img src="./DiagramaImagens/Diagrama-de-Implatacao.png" width="350"> |
+| Modelo de Banco | <img src="./DiagramaImagens/Modelos%20de%20Banco.png" width="350"> |
 
 ---
 
 ### Diagramas de Sequência
 
-| Diagrama                    | Imagem                                                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Solicitação de adoção       | <img src="Diagrama%20Imagens/Diagrama%20de%20Sequencia%20-%20Solicitação%20de%20adoção.png" width="350">     |
-| Analisar solicitação        | <img src="Diagrama%20Imagens/Diagrama%20de%20Sequencia%20-%20Analisar%20Solicitação.png" width="350">        |
-| Enviar mensagem             | <img src="Diagrama%20Imagens/Diagrama%20de%20Sequencia%20-%20Enviar%20mensagem.png" width="350">             |
-| Cadastrar animal            | <img src="Diagrama%20Imagens/Diagrama%20de%20Sequencia%20-%20Cadastrar%20Animal.png" width="350">            |
-| Consultar e filtrar animais | <img src="Diagrama%20Imagens/Diagrama%20de%20Sequencia%20-%20Consultar%20e%20Filtrar.png" width="350">       |
-| Localização e proximidade   | <img src="Diagrama%20Imagens/Diagrama%20de%20Sequencia%20-%20Localização%20e%20proximidade.png" width="350"> |
+| Diagrama | Imagem |
+|---|---|
+| Solicitação de adoção | <img src="./DiagramaImagens/Diagrama-de-Sequencia-Solicitacao-de-adocao.png" width="350"> |
+| Analisar solicitação | <img src="./DiagramaImagens/Diagrama-de-Sequencia-Analisar-Solicitação.png" width="350"> |
+| Enviar mensagem | <img src="./DiagramaImagens/Diagrama-de-Sequencia-Enviar-mensagem.png" width="350"> |
+| Cadastrar animal | <img src="DiagramaImagens\Diagrama-de-Seguencia-Cadastrar-Animal.png" width="350"> |
+| Consultar e filtrar animais | <img src="DiagramaImagens\Diagrama-de-Seguencia-Consultar-e-Filtra-Animais.png" width="350"> |
+| Localização e proximidade | <img src="DiagramaImagens\Diagrama-de-Seguencia-Localizaçao-e-proximidade.png" width="350"> |
 
 ---
 
 ### Diagramas de Comunicação
 
-| Diagrama              | Imagem                                                                                                  |
-| --------------------- | ------------------------------------------------------------------------------------------------------- |
-| Solicitação de adoção | <img src="Diagrama%20Imagens/Diagrama%20de%20Comunicação%20-%20Solicitação%20Adoção.png" width="350">   |
-| Analisar solicitação  | <img src="Diagrama%20Imagens/Diagrama%20de%20Comunicação%20-%20Analisar%20Solicitação.png" width="350"> |
-| Enviar mensagem       | <img src="Diagrama%20Imagens/Diagrama%20de%20Comunicação%20-%20Enviar%20mensagem.png" width="350">      |
-| Consultar animais     | <img src="Diagrama%20Imagens/Diagrama%20de%20Comunicação%20-%20Consultar%20Animais.png" width="350">    |
+| Diagrama | Imagem |
+|---|---|
+| Solicitação de adoção | <img src="./DiagramaImagens/Diagrama-de-Comunicacao-Solicitacao-Adocao.png" width="350"> |
+| Analisar solicitação | <img src="./DiagramaImagens/Diagrama-de-Comunicacao-Analisar-Solicitacao-Adocao.png" width="350"> |
+| Enviar mensagem | <img src="./DiagramaImagens/Diagrama-de-Comunicacao-Enviar-mensagem.png" width="350"> |
+| Consultar animal com filtro de localização e proximidade | <img src="./DiagramaImagens/Diagrama-de-Comunicacao-Consultar-Animal-com-Filtro-de-Localizacao-e-proximidade.png" width="350"> |
 
 ---
 
 ### Diagramas de Estado
 
-| Diagrama                        | Imagem                                                                                                |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Estado do Animal                | <img src="Diagrama%20Imagens/Diagrama%20de%20Estado%20-%20Animal.png" width="350">                    |
-| Estado do Chat                  | <img src="Diagrama%20Imagens/Diagrama%20de%20Estado%20-%20Chat.png" width="350">                      |
-| Estado da Solicitação de Adoção | <img src="Diagrama%20Imagens/Diagrama%20de%20Estado%20-%20Solicitação%20de%20Adoção.png" width="350"> |
+| Diagrama | Imagem |
+|---|---|
+| Estado do Animal | <img src="./DiagramaImagens/Diagrama-de-Estado-Animal.png" width="350"> |
+| Estado do Chat | <img src="./DiagramaImagens/Diagrama-de-Estado-Chat.png" width="350"> |
+| Estado da Solicitação de Adoção | <img src="./DiagramaImagens/Diagrama-de-Estado-Solicitacao-de-Adocao.png" width="350"> |
 
 ---
 
+
 ## 🗃 Modelo de Dados
 
-O sistema utiliza banco de dados relacional **PostgreSQL**. As principais tabelas previstas são:
+O sistema utilizará banco de dados relacional **PostgreSQL**. As principais tabelas previstas são:
 
 * `usuario`;
 * `adotante`;
@@ -195,61 +198,6 @@ O sistema utiliza banco de dados relacional **PostgreSQL**. As principais tabela
 * Uma solicitação pode gerar várias notificações.
 
 A API de localização não possui tabela própria, pois representa um serviço externo. Os dados necessários para seu uso, como cidade, estado, latitude e longitude, são armazenados nas entidades `adotante`, `ong` e `animal`.
-
----
-
-## 📂 Estrutura de Pastas
-
-```text
-PETCARE
-├── Diagrama Imagens
-│   ├── Diagrama Casos de Uso.png
-│   ├── Diagrama Classes.png
-│   ├── Diagrama de Arquitetura.png
-│   ├── Diagrama de Componentes.png
-│   ├── Diagrama de Comunicação - Analisar Solicitação.png
-│   ├── Diagrama de Comunicação - Consultar Animais.png
-│   ├── Diagrama de Comunicação - Enviar mensagem.png
-│   ├── Diagrama de Comunicação - Solicitação Adoção.png
-│   ├── Diagrama de Estado - Animal.png
-│   ├── Diagrama de Estado - Chat.png
-│   ├── Diagrama de Estado - Solicitação de Adoção.png
-│   ├── Diagrama de Implantação.png
-│   ├── Diagrama de Sequencia - Cadastrar Animal.png
-│   ├── Diagrama de Sequencia - Consultar e Filtrar.png
-│   ├── Diagrama de Sequencia - Localização e proximidade.png
-│   ├── Diagrama de Sequencia - Analisar Solicitação.png
-│   ├── Diagrama de Sequencia - Enviar mensagem.png
-│   ├── Diagrama de Sequencia - Solicitação de adoção.png
-│   └── Modelos de Banco.png
-│
-├── Diagramas puml
-│   └── Arquivos .puml dos diagramas
-│
-└── README.md
-```
-
----
-
-## 🧪 Testes
-
-Por se tratar de um projeto de documentação e modelagem, os testes foram planejados com base nos principais fluxos do sistema.
-
-### Casos de teste previstos
-
-* Cadastro de animal pela ONG;
-* Edição dos dados do animal;
-* Listagem de animais disponíveis;
-* Aplicação de filtros por espécie, porte, idade e localização;
-* Visualização da ficha do animal;
-* Cálculo de distância aproximada;
-* Solicitação de adoção pelo adotante;
-* Análise da solicitação pela ONG;
-* Alteração do status da adoção;
-* Envio de notificação ao adotante;
-* Envio de mensagem pelo chat;
-* Consulta do histórico de solicitações.
-
 ---
 
 ## 📌 Status dos Animais
@@ -287,27 +235,12 @@ As solicitações de adoção podem possuir os seguintes estados:
 
 ---
 
-## 📖 Documentações utilizadas
-
-* Documentação oficial do PlantUML;
-* Documentação oficial do PostgreSQL;
-* Materiais da disciplina Projeto de Software;
-* Template de documentação fornecido para o trabalho;
-* Diagramas UML desenvolvidos para o sistema PetCar.
-
----
 
 ## 👥 Autores
 
 | Nome                            | Curso                  | Instituição |
 | ------------------------------- | ---------------------- | ----------- |
 | Diogo Henrique Moreira da Silva | Engenharia de Software | PUC Minas   |
-
----
-
-## 🙏 Agradecimentos
-
-Agradecimentos à **PUC Minas** e à disciplina **Projeto de Software**, pelo desenvolvimento dos conhecimentos relacionados à modelagem, documentação e arquitetura de sistemas.
 
 ---
 
